@@ -65,7 +65,7 @@ cat > config.json << EOF
             },
             "streamSettings":{
                 "network":"ws",
-                "security":"none",
+                "security":"none"
             }
         },
         {
