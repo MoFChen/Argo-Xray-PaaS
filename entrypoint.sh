@@ -65,25 +65,7 @@ cat > config.json << EOF
             },
             "streamSettings":{
                 "network":"ws",
-                "security":"reality",
-                "realitySettings": {
-                    "show": false,
-                    "dest": "learn.microsoft.com:443",
-                    "xver": 0,
-                    "serverNames": [
-                        "learn.microsoft.com",
-                        "www.microsoft.com"
-                    ],
-                    "privateKey": "${PKEY}", // 必填，执行 ./xray x25519 生成
-                    "minClientVer": "",
-                    "maxClientVer": "",
-                    "maxTimeDiff": 0,
-                    "shortIds": [ // 必填，客户端可用的 shortId 列表，可用于区分不同的客户端
-                        "",
-                        "18c3f34b78571353",
-                        "35630a0896a761a6"
-                    ]
-                }
+                "security":"none",
             }
         },
         {
