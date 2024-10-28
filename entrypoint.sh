@@ -2,7 +2,7 @@
 
 # 默认各参数值，请自行修改.(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
 PORT=${PORT:-'8080'}
-UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
+UUID=${UUID:-'9fe3093a-5982-425b-b505-bd0cf739225d'}
 WSPATH=${WSPATH:-'argo'}
 
 # 生成 Xray 配置文件
@@ -21,7 +21,7 @@ cat > config.json << EOF
                 "clients":[
                     {
                         "id":"${UUID}",
-                        "flow":"xtls-rprx-direct"
+                        "flow":"xtls-rprx-vision"
                     }
                 ],
                 "decryption":"none",
@@ -65,7 +65,25 @@ cat > config.json << EOF
             },
             "streamSettings":{
                 "network":"ws",
-                "security":"none"
+                "security":"reality",
+                "realitySettings": {
+                    "show": false,
+                    "dest": "learn.microsoft.com:443",
+                    "xver": 0,
+                    "serverNames": [
+                        "learn.microsoft.com",
+                        "www.microsoft.com"
+                    ],
+                    "privateKey": "${PKEY}", // 必填，执行 ./xray x25519 生成
+                    "minClientVer": "",
+                    "maxClientVer": "",
+                    "maxTimeDiff": 0,
+                    "shortIds": [ // 必填，客户端可用的 shortId 列表，可用于区分不同的客户端
+                        "",
+                        "18c3f34b78571353",
+                        "35630a0896a761a6"
+                    ]
+                }
             }
         },
         {
